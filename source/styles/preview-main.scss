@@ -5,7 +5,8 @@ html, body, .preview-main {
 }
 
 .preview-main {
-  background-color: #1b2b42;
+  background-color: #131826;
+  height: 100vh;
 }
 
 .preview-main_bg {
@@ -23,7 +24,10 @@ html, body, .preview-main {
   width: 100%;
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 110px;
-  color: white;
+  background: linear-gradient(to right, rgba(0,0,0,0), #BF4F45, #D9D9D9, rgba(0,0,0,0)) 50% 50%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #BF9969;
 }
 
 .label_logo {
@@ -43,5 +47,66 @@ html, body, .preview-main {
   height: 160px;
   flex: 2;
   border-bottom: 10px solid;
-  border-image: linear-gradient(to right, #dd4540, #d2a882, rgba(0,0,0,0) ) 47% 0%;
+  border-image: linear-gradient(to right, #BF4F45, #F2695C, rgba(0,0,0,0)) 47% 0%;
+}
+
+.info {
+  height: 100vh;
+  width: 100vw;
+  background-color: #131826;
+}
+
+.hex {
+  width: 100px;
+  height: 100px;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+.hex_1 {
+  background-color: #BF4F45;
+}
+.hex_2 {
+  background-color: #F2695C;
+}
+.hex_3 {
+  background-color: #233D4C;
+}
+.hex_4 {
+  background-color: #134752;
+}
+.hex_5 {
+  background-color: #ffda78;
+}
+
+
+.list_numbered {
+  counter-reset: countinfo;
+  list-style: none;
+}
+
+.info_list {
+  .info_sheet {
+    display: flex;
+    align-items: center;
+    width: calc(100vw/1.2);
+  }
+
+  .info_sheet:nth-child(even) {
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  .info_sheet::before {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: url('../resources/hexagon_border.svg') no-repeat center;
+    background-size: contain;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    line-height: 6.5em;
+    content: counter(countinfo);
+    counter-increment: countinfo;
+  }
 }
