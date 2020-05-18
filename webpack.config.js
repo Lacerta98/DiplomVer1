@@ -27,7 +27,7 @@ const optimization = () => {
 
 const fileName = ext => isDev ? `[name].${ext}` : `[name].[hash].${ext}`;
 
-// функция ля лоадеров, связанных с css (чтобы не дублировать код в module)
+// функция для лоадеров, связанных с css (чтобы не дублировать код в module)
 const cssLoaders = extra => {
     const loaders = [
         {
