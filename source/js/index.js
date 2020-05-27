@@ -1,6 +1,14 @@
 import '@/styles/preview-main.scss';
 
+const VK_ACCES = {
+    PHOTOS: 8,
+    GROUP: 262144
+}
+
 window.onload = function () {
+    VK.init({
+        apiId: 7484286
+    });
     const authButton = document.getElementsByClassName('promo-button')[0];
     const authClose = document.getElementsByClassName('window-auth_form__close')[0];
     const authForm = document.getElementsByClassName('window-auth_form')[0];
@@ -9,17 +17,19 @@ window.onload = function () {
     authClose.onclick = openAuthorization;
 }
 
-function openAuthorization() {
-    const window = document.getElementsByClassName('window-auth')[0];
-    window.classList.toggle('hidden');
-}
+function authorization(event) {
+    VK.Auth.login((response) => {
+            if (response.status === 'connected') { // авторизация прошла успешно
+                const user = {
+                    id: response.session.user.id,
+                    name: response.session.user.first_name,
+                };
+            } else if (response.status === 'not_authorized') { // пользователь авторизован в ВКонтакте, но не разрешил доступ приложению;
 
-function authorization() {
-    const login = document.getElementsByClassName('window-auth_form__login')[0];
-    const password = document.getElementsByClassName('window-auth_form__password')[0];
-    if (login.value && password.value) {
-        alert('Вы отправили форму!');
-    }
-    return false;
-}
+            } else if (response.status === 'unknown') { // пользователь не авторизован ВКонтакте.
 
+            }
+
+        }, VK_ACCES.GROUP, VK_ACCES.PHOTOS
+    );
+}
