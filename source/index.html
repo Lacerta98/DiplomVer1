@@ -2,7 +2,7 @@
 <html lang="ru">
     <head>
         <meta charset="UTF-8">
-        <title>Hexan</title>
+        <title>Analyst</title>
         <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans|Montserrat&display=swap" rel="stylesheet">
     </head>
     <body>
@@ -22,7 +22,16 @@
             </section>
         </main>
         <div class="window-auth hidden">
-            <div></div>
+            <div class="window-auth_form__container">
+                <button class="window-auth_form__close">X</button>
+                <p class="window-auth_form__captions">Авторизация</p>
+                <p class="window-auth_form__prompt">Введите данные для авторизации через социальную сеть VK</p>
+                <form class="window-auth_form">
+                    <input class="window-auth_form__login" placeholder="Логин" type="tel" name="userPhone">
+                    <input class="window-auth_form__password" placeholder="Пароль" name="userPassword" type="password">
+                    <input class="window-auth_form__submit" type="submit" value="ОК" onclick="authorization(); return false;">
+                </form>
+            </div>
         </div>
         <script src="js/index.js"></script>
     </body>
