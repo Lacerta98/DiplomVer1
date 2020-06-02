@@ -79,7 +79,8 @@ module.exports = {
     context: path.resolve(__dirname, 'source'), // корень ресурсов (для упрощения названий путей)
     mode: 'development', // режим (разработки или на продакшен)
     entry: {
-        main: ['@babel/polyfill', './js/index.js']
+        main: ['@babel/polyfill', './js/index.js'],
+        group: ['@babel/polyfill', './js/group.js']
     },// точка входа в приложение
     output: {
         filename: fileName('js'), // имя исходного файла (стандартное название)
@@ -101,6 +102,13 @@ module.exports = {
     plugins: [  // сначала все плагины нужно установить
         new HTMLWebpackPlugin({
             template: './index.html', //шаблон страницы
+            minify: {
+                collapseWhitespace: !isDev // минимилировать html для продакшена
+            }
+        }),
+        new HTMLWebpackPlugin({
+            filename: 'group.html',
+            template: './group.html', //шаблон страницы
             minify: {
                 collapseWhitespace: !isDev // минимилировать html для продакшена
             }
@@ -149,7 +157,7 @@ module.exports = {
             },
             // правила для картинок
             {
-                test: /\.(png|jpg|svg|gif)$/,
+                test: /\.(png|jpg|jpeg|svg|gif)$/,
                 use: ['file-loader'] // помогает импортировать различные файлы (картинки, шрифты)
             },
             // правила для шрифтов

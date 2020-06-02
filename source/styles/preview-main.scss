@@ -9,7 +9,7 @@ html, body, .preview {
 
 .promo-preview {
   border: 1px solid #FFFFFF;
-  background: #FFFFFF url('../resources/feature.jpg') no-repeat center bottom;
+  background: #FFFFFF url('../resources/feature.jpeg') no-repeat center bottom;
   background-size: contain;
   height: calc(100vh - 71px);
 }
@@ -17,6 +17,7 @@ html, body, .preview {
 @media screen and (min-width: 1466px) {
   .promo-preview {
     background-size: cover;
+    background-position-y: top;
   }
 }
 
