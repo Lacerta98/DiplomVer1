@@ -1,5 +1,7 @@
 import '@/styles/preview-main.scss';
 
+console.log('Все ок');
+
 const VK_ACCESS = {
     PHOTOS: 8,
     GROUP: 262144
@@ -8,7 +10,7 @@ const confirmation = document.getElementsByClassName('window-auth')[0];
 const authButton = document.getElementsByClassName('promo-button')[0];
 const authClose = document.getElementsByClassName('window-auth_form__close')[0];
 
-authButton.onclick = authorization;
+authButton.addEventListener('click', authorization);
 authClose.onclick = openWaring;
 
 VK.init({

@@ -11,9 +11,9 @@ const isDev = process.env.NODE_ENV === 'development'; // определение 
 
 const optimization = () => {
     const config = {
-        splitChunks: {
-            chunks: 'all'  // общие подключаемые библиотеки выносятся в отдельный модуль (чтобы подгружать не несколько раз, а один)
-        }
+       // splitChunks: {
+           // chunks: 'all'  // общие подключаемые библиотеки выносятся в отдельный модуль (чтобы подгружать не несколько раз, а один)
+        //}
     };
     // если в продакшен оптимизируем css и js
     if (!isDev) {
@@ -79,7 +79,7 @@ module.exports = {
     context: path.resolve(__dirname, 'source'), // корень ресурсов (для упрощения названий путей)
     mode: 'development', // режим (разработки или на продакшен)
     entry: {
-        main: ['@babel/polyfill', './js/index.js'],
+        index: ['@babel/polyfill', './js/index.js'],
         group: ['@babel/polyfill', './js/group.js']
     },// точка входа в приложение
     output: {
@@ -101,17 +101,20 @@ module.exports = {
     },
     plugins: [  // сначала все плагины нужно установить
         new HTMLWebpackPlugin({
+            fileName: 'index.html',
             template: './index.html', //шаблон страницы
             minify: {
                 collapseWhitespace: !isDev // минимилировать html для продакшена
-            }
+            },
+            chunks: ['index', 'vendors~index']
         }),
         new HTMLWebpackPlugin({
             filename: 'group.html',
             template: './group.html', //шаблон страницы
             minify: {
                 collapseWhitespace: !isDev // минимилировать html для продакшена
-            }
+            },
+            chunks: ['group', 'vendors~group~index']
         }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin([
