@@ -57,9 +57,6 @@ function setCookie(name, value, options = {}) {
     }
 
     document.cookie = updatedCookie;
-    VK.api("groups.get", {user_id: a.session.mid, extended: 1, filter: 'moder', "v":"5.73"}, function (data) {
-        console.log(JSON.stringify(data));
-    });
 }
 
 
