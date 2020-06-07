@@ -1,28 +1,49 @@
-import '@/styles/preview-main.scss';
-const user = JSON.parse(getCookie('machine_analyst'))
-const promoText = document.getElementsByClassName('promo_text')[0];
+import {Cookie} from '@/js/cookie'
+import {Vk} from '@/js/vk'
+import '@/styles/group.scss';
 
-VK.init({
-    apiId: 7484286
-});
+const vk = new Vk();
+const cookie = new Cookie();
 
-promoText.innerHTML = `Добро пожаловать ${user.session.user.first_name}`;
+const user = JSON.parse(cookie.get('machine_analyst'))
 
-VK.api("groups.get", {user_id: user.session.mid, extended: 1, filter: 'moder', "v":"5.73"}, function (data) {
-    const container = document.getElementsByClassName('groups');
-    const groups = data.response.items;
-    groups.forEach((group) => {
-        let item = document.createElement('li');
-        item.className = 'group';
-        item.innerHTML = `<div class="group-name" style=${'background-image: ' + group.photo_200}> ${group.name} </div>`
-        container.append(item);
-    })
-});
+try {
+    const promoText = document.getElementsByClassName('promo_text')[0];
 
-function getCookie(name) {
-    let matches = document.cookie.match(new RegExp(
-        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-    ));
-    return matches ? decodeURIComponent(matches[1]) : undefined;
+    promoText.innerHTML = `Добро пожаловать <span class="promo_text-name">${user.session.user.first_name}</span>`;
+
+    const container = document.getElementsByClassName('groups')[0];
+    vk.getGroups(user.session.mid).then(data => {
+        const groups = data.response.items;
+        groups.forEach((group) => {
+            const item = createHTMLElement('li', 'group');
+            const img = createHTMLElement('div', 'group-avatar');
+            img.style.backgroundImage = `url(${group.photo_200})`;
+            item.append(img);
+            const text = createHTMLElement('p', 'group-name', group.name);
+            item.append(text);
+            container.append(item);
+            item.onmouseenter=item.onmouseleave=hover;
+        })
+    });
+} catch (e) {
+    document.location.href = 'http://y906521i.beget.tech';
 }
 
+function createHTMLElement(elementName, className, textContent) {
+    let element = document.createElement(elementName);
+    if (className) {
+        element.className = className;
+    }
+    if (textContent) {
+        element.textContent = textContent;
+    }
+    return  element
+}
+
+function hover(event) {
+    const text = event.target.getElementsByClassName('group-name')[0];
+    const img = event.target.getElementsByClassName('group-avatar')[0];
+    text.classList.toggle('text-red');
+    img.classList.toggle('not-filter');
+}
