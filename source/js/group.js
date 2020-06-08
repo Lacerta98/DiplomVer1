@@ -4,8 +4,8 @@ import '@/styles/group.scss';
 
 const vk = new Vk();
 const cookie = new Cookie();
-const promoText = document.getElementsByClassName('promo_text')[0];
-const backButton = document.getElementsByClassName('button')[0];
+const promoText = document.getElementsByClassName('header__text')[0];
+const backButton = document.getElementsByClassName('header__button')[0];
 
 backButton.onclick = out;
 

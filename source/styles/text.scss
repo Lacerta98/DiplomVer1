@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+.h1, .h2, .h3, .h4 {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+}
+
+.h1, .h3 {
+  letter-spacing: -2.5px;
+}
+
+.h1 {
+  font-size: 160px;
+  color: #DE193A;
+  text-align: center;
+}
+
+.h2 {
+  font-size: 60px;
+}
+
+.h3 {
+  font-size: 30px;
+}
+
+.h4 {
+  font-size: 20px;
+}

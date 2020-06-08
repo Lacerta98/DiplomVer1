@@ -1,6 +1,6 @@
 import {Cookie} from '@/js/cookie';
 import {Vk} from '@/js/vk'
-import '@/styles/preview-main.scss';
+import '@/styles/main.scss';
 
 const vk = new Vk();
 const cookie = new Cookie();
@@ -9,7 +9,7 @@ const VK_ACCESS = {
     GROUP: 262144
 };
 const confirmation = document.getElementsByClassName('window-auth')[0];
-const authButton = document.getElementsByClassName('promo-button')[0];
+const authButton = document.getElementsByClassName('header__button')[0];
 const authClose = document.getElementsByClassName('window-auth_form__close')[0];
 
 authButton.addEventListener('click', authorization);
