@@ -30,4 +30,8 @@ export class Cookie {
         ));
         return matches ? decodeURIComponent(matches[1]) : undefined;
     }
+
+    delete(name) {
+        this.set(name, "", {'max-age': -1});
+    }
 }

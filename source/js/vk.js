@@ -15,4 +15,14 @@ export class Vk {
                 });
         });
     }
+
+    // получение публикаций пользователя
+    getPublications(id) {
+        return new Promise( res => {
+            VK.api("wall.get", {owner_id: -id, "v": "5.73"},
+                (data) => {
+                    res(data.response);
+                });
+        });
+    }
 }

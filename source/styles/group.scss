@@ -19,13 +19,10 @@
   justify-content: space-between;
 }
 
-.main {
-  margin: 0 120px;
-}
-
 .h1 {
   font-family: 'Oswald', sans-serif;
   font-size: 50px;
+  margin-left: 120px;
   color: #000000;
   text-transform: uppercase;
 }
@@ -43,25 +40,28 @@
 }
 
 .groups {
-  display: flex;
-  margin-top: 33.5px;
-  flex-direction: row;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 247px));
   justify-content: space-evenly;
-  overflow: hidden;
-  padding: 0; }
+  margin-top: 33.5px;
+  padding: 0;
+}
 
 .group {
   display: flex;
   width: 247px;
   list-style: none;
-  flex-direction: column; }
+  flex-direction: column;
+}
 
 .group-avatar {
   width: 247px;
   height: 247px;
   background: #FFFFFF no-repeat;
   background-size: contain;
-  filter: grayscale(100%); }
+  filter: grayscale(100%);
+}
 
 .group-name {
   font-family: 'Oswald', sans-serif;
@@ -72,15 +72,21 @@
 }
 
 .text-red {
-  color: #DE193A; }
+  color: #DE193A;
+}
 
 .delimiter {
   background: url("https://tiltedchair.co/wp-content/uploads/2018/03/TC-180309-Brand-Pattern.jpg") 50% repeat-x;
   background-size: 960px 400px;
   margin: 0 -130px;
   height: 120px;
-  width: calc(100% + 300px);}
+  width: calc(100% + 300px);
+}
 
 .not-filter {
   filter: none;
+}
+
+.hidden {
+  display: none;
 }

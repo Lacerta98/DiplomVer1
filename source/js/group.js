@@ -4,12 +4,13 @@ import '@/styles/group.scss';
 
 const vk = new Vk();
 const cookie = new Cookie();
+const promoText = document.getElementsByClassName('promo_text')[0];
+const backButton = document.getElementsByClassName('button')[0];
 
-const user = JSON.parse(cookie.get('machine_analyst'))
+backButton.onclick = out;
 
 try {
-    const promoText = document.getElementsByClassName('promo_text')[0];
-
+    const user = JSON.parse(cookie.get('machine_analyst'));
     promoText.innerHTML = `Добро пожаловать <span class="promo_text-name">${user.session.user.first_name}</span>`;
 
     const container = document.getElementsByClassName('groups')[0];
@@ -17,13 +18,18 @@ try {
         const groups = data.response.items;
         groups.forEach((group) => {
             const item = createHTMLElement('li', 'group');
+            item.information = group;
+
             const img = createHTMLElement('div', 'group-avatar');
             img.style.backgroundImage = `url(${group.photo_200})`;
             item.append(img);
+
             const text = createHTMLElement('p', 'group-name', group.name);
             item.append(text);
+
             container.append(item);
             item.onmouseenter=item.onmouseleave=hover;
+            item.addEventListener('click', groupClick);
         })
     });
 } catch (e) {
@@ -46,4 +52,14 @@ function hover(event) {
     const img = event.target.getElementsByClassName('group-avatar')[0];
     text.classList.toggle('text-red');
     img.classList.toggle('not-filter');
+}
+
+function out() {
+    cookie.delete('machine_analyst');
+    document.location.href = 'http://y906521i.beget.tech';
+}
+
+function groupClick() {
+    cookie.set('group', JSON.stringify(this.information), {'max-age': 3600});
+    document.location.href = 'http://y906521i.beget.tech/publications.html';
 }
