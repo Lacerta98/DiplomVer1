@@ -25,6 +25,9 @@ html, body {
     padding-right: 40px;
     color: #DE193A;
   }
+  &__text {
+    padding-left: 40px;
+  }
 }
 
 .navigation {
@@ -49,7 +52,14 @@ html, body {
 }
 
 .main {
-  min-width: calc(100vh - 88px);
+  min-height: calc(100vh - 88px);
   display: flex;
-  justify-content: center;
+  &-h {
+    margin-left: 130px;
+    letter-spacing: 0;
+  }
+}
+
+.not-filter {
+  filter: none !important;
 }

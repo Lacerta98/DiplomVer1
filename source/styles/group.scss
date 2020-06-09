@@ -1,45 +1,28 @@
 @import 'text.scss';
 @import 'base.scss';
 
-
-
-.promo_text {
-  font-family: 'Oswald', sans-serif;
-  font-size: 26px;
-  margin-bottom: 0;
-  font-weight: 400;
+.main-group {
+  flex-direction: column;
 }
 
-.promo_text-name {
-  color: #DE193A;
-}
-
-.header__nav {
+.groups-container {
+  flex: 1;
   display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  justify-content: space-between;
-}
-
-.button {
-  display: inline;
-  background: none;
-  border: none;
-  outline: none;
-  font-size: 26px;
-  font-family: 'Oswald', sans-serif;
-  letter-spacing: -2.5px;
-  text-transform: uppercase;
-  color: #DE193A;
+  flex-direction: column;
+  justify-content: center;
+  background: url("https://tiltedchair.co/wp-content/uploads/2018/03/TC-180309-Brand-Pattern.jpg") repeat;
+  background-size: 60%;
 }
 
 .groups {
+  background-color: #FFFFFF;
+  padding: 70px 0 50px;
+  align-items: center;
   display: grid;
   grid-gap: 5px;
   grid-template-columns: repeat(auto-fit, minmax(100px, 247px));
   justify-content: space-evenly;
   margin-top: 33.5px;
-  padding: 0;
 }
 
 .group {
@@ -47,40 +30,18 @@
   width: 247px;
   list-style: none;
   flex-direction: column;
-}
-
-.group-avatar {
-  width: 247px;
-  height: 247px;
-  background: #FFFFFF no-repeat;
-  background-size: contain;
-  filter: grayscale(100%);
-}
-
-.group-name {
-  font-family: 'Oswald', sans-serif;
-  font-size: 30px;
-  white-space: nowrap; /* Запрещаем перенос строк */
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.text-red {
-  color: #DE193A;
-}
-
-.delimiter {
-  background: url("https://tiltedchair.co/wp-content/uploads/2018/03/TC-180309-Brand-Pattern.jpg") 50% repeat-x;
-  background-size: 960px 400px;
-  margin: 0 -130px;
-  height: 120px;
-  width: calc(100% + 300px);
-}
-
-.not-filter {
-  filter: none;
-}
-
-.hidden {
-  display: none;
+  &-avatar {
+    width: 247px;
+    height: 247px;
+    background: #FFFFFF no-repeat;
+    background-size: contain;
+    filter: grayscale(100%);
+  }
+  &-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+    white-space: nowrap; /* Запрещаем перенос строк */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }

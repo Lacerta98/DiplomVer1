@@ -1,0 +1,69 @@
+@import 'text.scss';
+@import 'base.scss';
+
+.main-publications {
+  flex-direction: column;
+}
+
+.publications-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: url("https://tiltedchair.co/wp-content/uploads/2018/03/TC-180309-Brand-Pattern.jpg") repeat;
+  background-size: 60%;
+}
+
+.publications {
+  background-color: #FFFFFF;
+  padding: 70px 0 50px;
+  margin-top: 70px;
+}
+
+.publication {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 20px;
+  &-avatar {
+    flex: 1;
+    height: 400px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  &-information {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    &__arrow {
+      width: 200px;
+      height: 44px;
+      background: url('../resources/arrow.png') no-repeat;
+      background-position-x: right;
+      background-size: cover;
+      ;
+      &::before {
+        content: 'Анализ';
+        display: block;
+        margin-left: 60px;
+        color: #DE193A;
+        text-transform: uppercase;
+        font-family: 'Oswald', sans-serif;
+        font-weight: bold;
+      }
+      &:hover {
+        animation: arrow 0.5s linear;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+}
+
+@keyframes arrow {
+  to {
+    width: 50px;
+  }
+}

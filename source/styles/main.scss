@@ -5,7 +5,7 @@
   border: 1px solid #FFFFFF;
   background: #FFFFFF url('../resources/feature.jpeg') no-repeat center bottom;
   background-size: contain;
-  height: calc(100vh - 88px);
+  justify-content: center;
 }
 
 @media screen and (min-width: 1466px) {
@@ -13,34 +13,6 @@
     background-size: cover;
     background-position-y: top;
   }
-}
-
-.promo-header {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-}
-
-.promo-button {
-  flex: 1;
-  display: inline;
-  letter-spacing: -2.5px;
-  color: #DE193A;
-}
-
-.promo-navigation {
-  flex: 13;
-}
-
-.promo-navigation_list {
-  display: flex;
-
-  font-size: 20px;
-  font-family: 'Oswald', sans-serif;
-  letter-spacing: -0.5px;
-  text-transform: uppercase;
-  justify-content: space-evenly;
 }
 
 .window-auth {

@@ -11,7 +11,7 @@ backButton.onclick = out;
 
 try {
     const user = JSON.parse(cookie.get('machine_analyst'));
-    promoText.innerHTML = `Добро пожаловать <span class="promo_text-name">${user.session.user.first_name}</span>`;
+    promoText.innerHTML = `Добро пожаловать <span class="text_color_red">${user.session.user.first_name}</span>`;
 
     const container = document.getElementsByClassName('groups')[0];
     vk.getGroups(user.session.mid).then(data => {
@@ -50,7 +50,7 @@ function createHTMLElement(elementName, className, textContent) {
 function hover(event) {
     const text = event.target.getElementsByClassName('group-name')[0];
     const img = event.target.getElementsByClassName('group-avatar')[0];
-    text.classList.toggle('text-red');
+    text.classList.toggle('text_color_red');
     img.classList.toggle('not-filter');
 }
 
