@@ -1,0 +1,40 @@
+@import 'text.scss';
+@import 'base.scss';
+
+.analyst-container {
+  display: flex;
+  justify-content: center;
+  background: url("https://tiltedchair.co/wp-content/uploads/2018/03/TC-180309-Brand-Pattern.jpg") repeat;
+  background-size: 60%;
+}
+
+.content {
+  background-color: #FFFFFF;
+  padding: 70px 0 50px;
+  margin: 70px 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(250px, 500px));
+  justify-content: center;
+  grid-gap: 50px;
+}
+
+.comments-positive {
+  color: #BFC274;
+}
+
+.comments-neutral {
+  color: #5F5A59;
+}
+
+.comments-negative {
+  color: #DE193A;
+}
+
+.comments {
+  font-size: 15px;
+  text-align: center;
+}
+
+.comment {
+  color: #000000;
+}

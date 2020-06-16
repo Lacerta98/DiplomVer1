@@ -18,23 +18,27 @@
   background-color: #FFFFFF;
   padding: 70px 0 50px;
   margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .publication {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 0 20px;
+  margin: 0 20px 50px;
   &-avatar {
-    flex: 1;
+    width: 500px;
     height: 400px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
   }
   &-information {
-    flex: 1;
+    width: 500px;
     display: flex;
+    margin: 0 50px;
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -44,26 +48,31 @@
       background: url('../resources/arrow.png') no-repeat;
       background-position-x: right;
       background-size: cover;
+      transition: all 0.2s linear;
       ;
       &::before {
-        content: 'Анализ';
+        content: '';
         display: block;
-        margin-left: 60px;
         color: #DE193A;
+        margin-left: 60px;
         text-transform: uppercase;
         font-family: 'Oswald', sans-serif;
         font-weight: bold;
       }
       &:hover {
-        animation: arrow 0.5s linear;
-        animation-fill-mode: forwards;
+        background-position-x: -150px;
+        &::before {
+          animation: text 0.2s linear;
+          animation-fill-mode: forwards;
+        }
       }
     }
   }
 }
 
-@keyframes arrow {
+@keyframes text {
   to {
-    width: 50px;
+    content: 'анализ';
   }
 }
+

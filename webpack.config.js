@@ -82,6 +82,7 @@ module.exports = {
         index: ['@babel/polyfill', './js/index.js'],
         group: ['@babel/polyfill', './js/group.js'],
         publications: ['@babel/polyfill', './js/publications.js'],
+        analyst: ['@babel/polyfill', './js/analyst.js']
     },// точка входа в приложение
     output: {
         filename: fileName('js'), // имя исходного файла (стандартное название)
@@ -124,6 +125,14 @@ module.exports = {
                 collapseWhitespace: !isDev // минимилировать html для продакшена
             },
             chunks: ['publications', 'vendors~publications~index']
+        }),
+        new HTMLWebpackPlugin({
+            filename: 'analyst.html',
+            template: './analyst.html', //шаблон страницы
+            minify: {
+                collapseWhitespace: !isDev // минимилировать html для продакшена
+            },
+            chunks: ['analyst', 'vendors~analyst~index']
         }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin([

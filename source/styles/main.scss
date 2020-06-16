@@ -2,6 +2,8 @@
 @import 'base.scss';
 
 .main-promo {
+  min-height: calc(100vh - 88px);
+  display: flex;
   border: 1px solid #FFFFFF;
   background: #FFFFFF url('../resources/feature.jpeg') no-repeat center bottom;
   background-size: contain;

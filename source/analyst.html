@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Analyst</title>
+    <script src="https://vk.com/js/api/openapi.js?168" type="text/javascript"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+</head>
+<body>
+<header class="header">
+    <p class="h2 header__text text_transform_uppercase">Анализ </p>
+    <div class="navigation"></div>
+    <button class="h2 button header__button text_color_red text_transform_uppercase">Выйти >></button>
+</header>
+<main class="main main-publications">
+    <h2 class="h2 main-h">Анализ комментариев</h2>
+    <section class="h3 publications-container">
+        <div class="content">
+            <div class="comments">
+                <div class="comments-positive">Позитивные:</div>
+                <div class="comments-neutral">Нейтральные:</div>
+                <div class="comments-negative">Отрицательные:</div>
+            </div>
+            <div id="analyticTonal" style="height: 250px; width: 500px"></div>
+            <div id="analyticSex" style="height: 250px; width: 500px"></div>
+            <div id="analyticCity" style="height: 250px; width: 500px"></div>
+        </div>
+    </section>
+    <h2 class="h2 main-h">Анализ лайков</h2>
+    <section class="h3 publications-container">
+        <div class="content">
+            <div id="analyticVisible" style="height: 250px; width: 500px"></div>
+            <div id="analyticSexLike" style="height: 250px; width: 500px"></div>
+            <div id="analyticCityLike" style="height: 250px; width: 500px"></div>
+        </div>
+    </section>
+</main>
+</body>
+</html>

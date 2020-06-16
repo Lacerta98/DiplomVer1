@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Lacerta98/DiplomVer1#readme",
   "browserslist": "> 0.25%, not dead",
   "dependencies": {
+    "chart.js": "^2.9.3",
     "normalize.css": "^8.0.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
